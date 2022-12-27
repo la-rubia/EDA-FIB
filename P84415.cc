@@ -3,41 +3,32 @@
 using namespace std;
 
 int main() {
-    map<string,int> m;
     string command;
-    map<string,int> :: iterator it;
+    map<string,int> m;
     while (cin >> command) {
-        if (command == "minimum?") {
-            if (m.begin()!=m.end()) {
-                it = m.begin();
-                cout << "minimum: " << it->first << ", " << it->second << " time(s)" << endl;
+        if (command=="minimum?") {
+            if (m.size()==0) cout << "indefinite minimum"<<endl;
+            else {
+                auto it = m.begin();
+                cout << "minimum: " << it->first << ", "<<it->second << " time(s)"<<endl;
             }
-            else cout << "indefinite minimum" << endl;
-
         }
-        else if (command == "store") {
-            string w; cin >> w;
-            it = m.find(w);
-            if (it==m.end()) m.insert(make_pair(w,1));
-            else m[w]++;
-        }
-        else if (command == "delete") {
-            string w; cin >> w;
-            it = m.find(w);
-            if (it!=m.end()) {
-                if (it->second>1) m[w]--;
-                else if (it->second == 1)  m.erase(w);
+        else if (command=="maximum?") {
+            if (m.size()==0) cout << "indefinite maximum"<<endl;
+            else {
+                auto it=m.end(); it--;
+                 cout << "maximum: " << it->first << ", "<<it->second << " time(s)"<<endl;
             }
-
-
+        }
+        else if (command=="delete") {
+            string p; cin >> p;
+            if(m[p]<=1) m.erase(p);
+            else m[p]--;
         }
         else {
-
-            if (m.begin()!=m.end()) {
-                it = m.end(); it--;
-                cout << "maximum: " << it->first << ", " << it->second << " time(s)" << endl;
-            }
-            else cout << "indefinite maximum" << endl;
+            string p; cin >> p;
+            if (m.end()==m.find(p)) m.insert({p,1});
+            else m[p]++;
         }
     }
 }
