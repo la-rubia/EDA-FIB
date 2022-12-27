@@ -44,7 +44,7 @@ int main() {
   Q.push(P(0, ini));
   dist[ini] = 0;
   bool found=false;
-  read_v(dist);
+//  read_v(dist);
   while (not found and not Q.empty()) {
     P p = Q.top(); Q.pop();
     int d = -p.first;
