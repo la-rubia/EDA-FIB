@@ -54,7 +54,6 @@ int main() {
       if (x == fi) {
         cout << d << endl;
         found=true;
-        break;
       }
       else {
           for (P arc : G[x]) {
