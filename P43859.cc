@@ -65,7 +65,7 @@ int main() {
             dist[y] = d2;
             Q.push(P(-d2, y));
           }
-          read_v(dist);
+     //     read_v(dist);
 
         }
       }
