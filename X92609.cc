@@ -22,7 +22,7 @@ int back(int k, int i) {
 
     else if(k<x){
         int r=0;
-        for(int i=0; i<n; i++) {
+        for(int j=0; j<=2; j++) {
 //             t[i]=j;
             int ki = k+m[i]*j;
             r+=back(ki,i+1);
